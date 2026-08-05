@@ -29,7 +29,7 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, -14, 0], scale: [1, 1.08, 1] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="relative h-[72%] w-[72%]"
+            className="relative h-full w-full"
           >
             <Image
               src="/images/verity-logo.png"
