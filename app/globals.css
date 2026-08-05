@@ -120,6 +120,31 @@ body {
   }
 }
 
+.verity-orb-glitch {
+  animation: glitch-orb 4.5s infinite;
+  filter: drop-shadow(2px 0 0 rgba(255, 0, 60, 0.55)) drop-shadow(-2px 0 0 rgba(0, 240, 255, 0.55));
+}
+
+@keyframes glitch-orb {
+  0%,
+  92%,
+  100% {
+    transform: translate(0, 0);
+    filter: drop-shadow(2px 0 0 rgba(255, 0, 60, 0.55)) drop-shadow(-2px 0 0 rgba(0, 240, 255, 0.55));
+  }
+  93% {
+    transform: translate(-4px, 2px);
+    filter: drop-shadow(-5px 0 0 rgba(255, 0, 60, 0.65)) drop-shadow(5px 0 0 rgba(0, 240, 255, 0.65));
+  }
+  95% {
+    transform: translate(4px, -2px);
+    filter: drop-shadow(5px 0 0 rgba(255, 0, 60, 0.65)) drop-shadow(-5px 0 0 rgba(0, 240, 255, 0.65));
+  }
+  97% {
+    transform: translate(-1px, 0);
+  }
+}
+
 @keyframes blink-caret {
   0%,
   100% {

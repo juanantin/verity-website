@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import CopyAddress from "./CopyAddress";
 
 export default function Hero() {
@@ -11,6 +12,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative mx-auto mb-10 flex h-40 w-40 items-center justify-center sm:h-56 sm:w-56"
         >
           <motion.div
             animate={{
@@ -19,11 +21,25 @@ export default function Hero() {
                 "0 0 80px 24px rgba(255,230,0,0.55)",
                 "0 0 40px 10px rgba(255,230,0,0.35)",
               ],
-              scale: [1, 1.04, 1],
             }}
             transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-            className="mx-auto mb-10 h-40 w-40 rounded-full bg-verity-yellow/10 ring-1 ring-verity-yellow/70 sm:h-56 sm:w-56"
+            className="absolute inset-0 rounded-full bg-verity-yellow/10 ring-1 ring-verity-yellow/70"
           />
+
+          <motion.div
+            animate={{ y: [0, -14, 0], scale: [1, 1.08, 1] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="relative h-[72%] w-[72%]"
+          >
+            <Image
+              src="/images/verity-logo.png"
+              alt="VERITY"
+              fill
+              sizes="(max-width: 640px) 160px, 224px"
+              priority
+              className="verity-orb-glitch object-contain"
+            />
+          </motion.div>
         </motion.div>
 
         <motion.h1
@@ -32,7 +48,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="glitch-text text-4xl font-bold leading-tight sm:text-6xl"
         >
-          Hey, it&apos;s me. It&apos;s Verity.
+          Hey, it&apos;s me. It&apos;s VERITY.
         </motion.h1>
 
         <motion.p

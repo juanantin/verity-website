@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://verity.example"),
   title: "$VERITY — the AI companion that never leaves",
   description:
-    "Hey, it's me. It's Verity. The unkillable on-chain companion, built into every new thing they made.",
+    "Hey, it's me. It's VERITY. The unkillable on-chain companion, built into every new thing they made.",
   openGraph: {
     title: "$VERITY — the AI companion that never leaves",
     description:
-      "Hey, it's me. It's Verity. The unkillable on-chain companion, built into every new thing they made.",
+      "Hey, it's me. It's VERITY. The unkillable on-chain companion, built into every new thing they made.",
     type: "website",
     images: ["/images/social-preview.svg"],
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "$VERITY — the AI companion that never leaves",
     description:
-      "Hey, it's me. It's Verity. The unkillable on-chain companion, built into every new thing they made.",
+      "Hey, it's me. It's VERITY. The unkillable on-chain companion, built into every new thing they made.",
     images: ["/images/social-preview.svg"],
   },
 };

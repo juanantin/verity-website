@@ -24,7 +24,7 @@ export default function AskVerity() {
     <section id="terminal" className="px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-2xl">
         <h2 className="mb-8 text-center text-2xl font-bold uppercase tracking-widest sm:text-3xl">
-          Ask Verity
+          Ask VERITY
         </h2>
 
         <div className="rounded-lg border border-verity-yellow/70 bg-verity-bg-raised p-5 shadow-[0_0_40px_rgba(255,230,0,0.12)] sm:p-6">
