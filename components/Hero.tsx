@@ -31,14 +31,19 @@ export default function Hero() {
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             className="relative h-full w-full"
           >
-            <Image
-              src="/images/verity-logo.png"
-              alt="VERITY"
-              fill
-              sizes="(max-width: 640px) 160px, 224px"
-              priority
-              className="verity-orb-glitch object-contain"
-            />
+            {/* verity-logo.png has ~11% transparent padding baked into the
+                canvas around the circle; scale up to crop it so the smiley
+                itself reaches the glow ring's edge. */}
+            <div className="absolute inset-0 scale-[1.16]">
+              <Image
+                src="/images/verity-logo.png"
+                alt="VERITY"
+                fill
+                sizes="(max-width: 640px) 160px, 224px"
+                priority
+                className="verity-orb-glitch object-contain"
+              />
+            </div>
           </motion.div>
         </motion.div>
 
