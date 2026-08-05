@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-verity-bg: #0d0d0f;
+  --color-verity-bg-raised: #17171a;
+  --color-verity-yellow: #ffe600;
+  --color-verity-red: #ff003c;
+
+  --font-mono: var(--font-space-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-verity-bg);
+  color: var(--color-verity-yellow);
+  font-family: var(--font-mono);
+}
+
+* {
+  border-color: var(--color-verity-yellow);
+}
+
+::selection {
+  background: var(--color-verity-yellow);
+  color: var(--color-verity-bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-verity-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-verity-yellow);
+}
+
+.focus-verity:focus-visible {
+  outline: 2px solid var(--color-verity-yellow);
+  outline-offset: 3px;
+}
+
+/* Grid backdrop */
+.verity-grid-bg {
+  background-image: linear-gradient(rgba(255, 230, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 230, 0, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* CRT scanline overlay, fixed over the whole viewport */
+.crt-scanlines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.035) 0px,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+.crt-vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  box-shadow: inset 0 0 18vw rgba(0, 0, 0, 0.75);
+}
+
+/* Glitch headline: layered text-shadow, jitters between two clip states */
+.glitch-text {
+  position: relative;
+  color: var(--color-verity-yellow);
+  text-shadow:
+    0 0 18px rgba(255, 230, 0, 0.35),
+    2px 0 var(--color-verity-red),
+    -2px 0 #00f0ff;
+  animation: glitch-jitter 4.5s infinite;
+}
+
+@keyframes glitch-jitter {
+  0%,
+  92%,
+  100% {
+    transform: translate(0, 0);
+    text-shadow:
+      0 0 18px rgba(255, 230, 0, 0.35),
+      2px 0 var(--color-verity-red),
+      -2px 0 #00f0ff;
+  }
+  93% {
+    transform: translate(-2px, 1px);
+    text-shadow:
+      0 0 18px rgba(255, 230, 0, 0.35),
+      -3px 0 var(--color-verity-red),
+      3px 0 #00f0ff;
+  }
+  95% {
+    transform: translate(2px, -1px);
+    text-shadow:
+      0 0 18px rgba(255, 230, 0, 0.35),
+      3px 0 var(--color-verity-red),
+      -3px 0 #00f0ff;
+  }
+  97% {
+    transform: translate(-1px, 0);
+  }
+}
+
+@keyframes blink-caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.terminal-caret::after {
+  content: "_";
+  animation: blink-caret 1s step-end infinite;
+}
+
+.noise-text {
+  text-shadow: 0 0 2px rgba(255, 230, 0, 0.6);
+}

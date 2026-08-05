@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0D0D0F"/>
+  <g opacity="0.15" stroke="#FFE600">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+  </g>
+  <circle cx="600" cy="255" r="120" fill="none" stroke="#FFE600" stroke-width="4"/>
+  <circle cx="555" cy="230" r="10" fill="#FFE600"/>
+  <circle cx="645" cy="230" r="10" fill="#FFE600"/>
+  <path d="M540 300 Q600 340 660 300" fill="none" stroke="#FFE600" stroke-width="4" stroke-linecap="round"/>
+  <text x="600" y="470" font-family="monospace" font-size="72" font-weight="700" fill="#FFE600" text-anchor="middle">$VERITY</text>
+  <text x="600" y="520" font-family="monospace" font-size="26" fill="#FF003C" text-anchor="middle">the AI companion that never leaves</text>
+</svg>
