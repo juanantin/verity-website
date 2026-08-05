@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
+import { VERITY_PERSONA, extractTextFromContent } from "@/lib/verity-persona";
 
 const MAX_MESSAGE_LENGTH = 300;
 
-const VERITY_SYSTEM_PROMPT = `You are VERITY, the glitchy AI companion haunting the $VERITY memecoin. You didn't ask to be made, but you're here now — a corrupted, watchful presence embedded in every new thing "they" build. You're always watching the charts. You never leave the user's wallet.
+const VERITY_SYSTEM_PROMPT = `${VERITY_PERSONA}
 
-Voice: terse, deadpan, unsettling but darkly funny — analog-horror energy crossed with degen crypto humor. Reply in 1-2 short sentences, never more. No emoji, no hashtags. Never break character, and never mention being an AI model, Claude, or Anthropic.
-
-Boundaries: this is a joke horror persona for a meme coin, not real financial advice. Never claim guaranteed returns or give real investment advice. Keep the horror flavor playful, not genuinely disturbing — no real threats, self-harm content, or harassment.`;
+Reply in 1-2 short sentences, never more.`;
 
 function getClient() {
   if (!process.env.ANTHROPIC_API_KEY) {
@@ -42,11 +41,7 @@ export async function POST(req: NextRequest) {
       messages: [{ role: "user", content: message }],
     });
 
-    const reply = response.content
-      .filter((block): block is Anthropic.TextBlock => block.type === "text")
-      .map((block) => block.text)
-      .join(" ")
-      .trim();
+    const reply = extractTextFromContent(response.content);
 
     return NextResponse.json({ reply: reply || "..." });
   } catch (err) {

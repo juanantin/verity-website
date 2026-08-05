@@ -1,0 +1,19 @@
+name: Verity X bot
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  reply-cycle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Verity bot reply cycle
+        run: |
+          curl -sf -X POST "$VERITY_BOT_URL" \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            -H "Content-Length: 0"
+        env:
+          VERITY_BOT_URL: ${{ secrets.VERITY_BOT_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
