@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutTerminal from "@/components/AboutTerminal";
 import Tokenomics from "@/components/Tokenomics";
-import AskVerity from "@/components/AskVerity";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
         <Hero />
         <AboutTerminal />
         <Tokenomics />
-        <AskVerity />
       </main>
       <Footer />
     </>

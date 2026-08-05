@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import CopyAddress from "./CopyAddress";
+import AskVerity from "./AskVerity";
 
 export default function Hero() {
   return (
@@ -95,6 +96,15 @@ export default function Hero() {
           <CopyAddress />
         </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+        className="mt-8"
+      >
+        <AskVerity />
+      </motion.div>
     </section>
   );
 }
