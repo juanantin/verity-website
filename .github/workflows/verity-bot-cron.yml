@@ -1,8 +1,11 @@
-name: Verity X bot
+name: Verity X bot (manual)
 
+# Scheduling now runs on Upstash QStash instead of GitHub Actions (see
+# README.md), which polls as often as every 1-2 minutes rather than this
+# workflow's 5-minute floor. This workflow is kept for manual/on-demand runs
+# only — trigger it from the Actions tab when you want to test without
+# waiting for the schedule.
 on:
-  schedule:
-    - cron: "*/5 * * * *"
   workflow_dispatch: {}
 
 jobs:
