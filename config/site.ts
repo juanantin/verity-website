@@ -5,8 +5,7 @@ export const navLinks = [
 ];
 
 export const socialLinks = {
-  x: "https://x.com",
-  telegram: "https://t.me",
+  x: "https://x.com/VERITYtoken_",
   dexscreener: "https://dexscreener.com",
 };
 

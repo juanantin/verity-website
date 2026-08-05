@@ -1,4 +1,4 @@
-import { Send, LineChart } from "lucide-react";
+import { LineChart } from "lucide-react";
 import { socialLinks } from "@/config/site";
 
 export default function Footer() {
@@ -14,15 +14,6 @@ export default function Footer() {
             className="focus-verity flex h-5 w-5 items-center justify-center text-sm font-bold text-verity-yellow/70 transition-colors hover:text-verity-yellow"
           >
             X
-          </a>
-          <a
-            href={socialLinks.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Telegram"
-            className="focus-verity text-verity-yellow/70 transition-colors hover:text-verity-yellow"
-          >
-            <Send size={20} />
           </a>
           <a
             href={socialLinks.dexscreener}
