@@ -14,6 +14,7 @@ export const contractAddress = "0x000000000000000000000000000000000000pump";
 
 export const tokenomics = [
   { label: "Total Supply", value: "1,000,000,000", suffix: "$VERITY" },
+  { label: "Chain", value: "Robinhood Chain", suffix: "" },
   { label: "Tax", value: "0/0", suffix: "No Taxes" },
   { label: "Liquidity", value: "100%", suffix: "Burned" },
   { label: "Contract", value: "Renounced", suffix: "" },
