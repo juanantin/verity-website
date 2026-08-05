@@ -6,18 +6,39 @@ import { verityResponses } from "@/config/site";
 
 type Entry = { role: "user" | "verity"; text: string };
 
+function randomCannedResponse() {
+  return verityResponses[Math.floor(Math.random() * verityResponses.length)];
+}
+
 export default function AskVerity() {
   const [input, setInput] = useState("");
   const [log, setLog] = useState<Entry[]>([]);
+  const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const text = input.trim();
-    if (!text) return;
+    if (!text || loading) return;
 
-    const reply = verityResponses[Math.floor(Math.random() * verityResponses.length)];
-    setLog((prev) => [...prev, { role: "user", text }, { role: "verity", text: reply }]);
     setInput("");
+    setLog((prev) => [...prev, { role: "user", text }]);
+    setLoading(true);
+
+    let reply: string;
+    try {
+      const res = await fetch("/api/verity", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text }),
+      });
+      const data = await res.json();
+      reply = res.ok && typeof data.reply === "string" ? data.reply : randomCannedResponse();
+    } catch {
+      reply = randomCannedResponse();
+    }
+
+    setLog((prev) => [...prev, { role: "verity", text: reply }]);
+    setLoading(false);
   }
 
   return (
@@ -35,7 +56,8 @@ export default function AskVerity() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="type something..."
-              className="focus-verity w-full min-w-0 flex-1 border-b border-verity-yellow/40 bg-transparent px-2 py-1 text-sm text-verity-yellow placeholder:text-verity-yellow/30 focus:border-verity-yellow"
+              disabled={loading}
+              className="focus-verity w-full min-w-0 flex-1 border-b border-verity-yellow/40 bg-transparent px-2 py-1 text-sm text-verity-yellow placeholder:text-verity-yellow/30 focus:border-verity-yellow disabled:opacity-50"
             />
           </form>
 
@@ -57,7 +79,10 @@ export default function AskVerity() {
                 </motion.p>
               ))}
             </AnimatePresence>
-            {log.length === 0 && (
+            {loading && (
+              <p className="terminal-caret text-verity-red/70">VERITY is typing</p>
+            )}
+            {log.length === 0 && !loading && (
               <p className="text-verity-yellow/30">Waiting for input...</p>
             )}
           </div>
