@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { tokenomics } from "@/config/site";
+import { tokenomics, socialLinks } from "@/config/site";
+import CopyAddress from "./CopyAddress";
 
 export default function Tokenomics() {
   return (
@@ -10,6 +11,28 @@ export default function Tokenomics() {
         <h2 className="mb-10 text-center text-2xl font-bold uppercase tracking-widest sm:text-3xl">
           Tokenomics
         </h2>
+
+        <div className="mb-10 flex flex-col items-center gap-6">
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <a
+              id="buy"
+              href="#terminal"
+              className="focus-verity rounded bg-verity-yellow px-8 py-3 text-center text-sm font-bold uppercase tracking-wider text-verity-bg shadow-[0_0_22px_rgba(255,230,0,0.6)] transition-shadow hover:shadow-[0_0_34px_rgba(255,230,0,0.9)]"
+            >
+              Buy $VERITY
+            </a>
+            <a
+              href={socialLinks.dexscreener}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-verity rounded border border-verity-yellow px-8 py-3 text-center text-sm font-bold uppercase tracking-wider text-verity-yellow transition-colors hover:bg-verity-yellow hover:text-verity-bg"
+            >
+              View Chart
+            </a>
+          </div>
+
+          <CopyAddress />
+        </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {tokenomics.map((stat) => (

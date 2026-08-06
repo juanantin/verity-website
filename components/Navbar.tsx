@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { navLinks } from "@/config/site";
+import { Menu, X, LineChart } from "lucide-react";
+import { navLinks, socialLinks } from "@/config/site";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function Navbar() {
           VERITY
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -24,6 +24,24 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <a
+            href={socialLinks.x}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X (Twitter)"
+            className="focus-verity flex h-5 w-5 items-center justify-center text-sm font-bold text-verity-yellow/70 transition-colors hover:text-verity-yellow"
+          >
+            X
+          </a>
+          <a
+            href={socialLinks.dexscreener}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chart"
+            className="focus-verity text-verity-yellow/70 transition-colors hover:text-verity-yellow"
+          >
+            <LineChart size={20} />
+          </a>
           <a
             href="#buy"
             className="focus-verity rounded bg-verity-yellow px-4 py-2 text-sm font-bold uppercase tracking-wider text-verity-bg shadow-[0_0_18px_rgba(255,230,0,0.55)] transition-shadow hover:shadow-[0_0_28px_rgba(255,230,0,0.85)]"
@@ -54,6 +72,26 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <div className="flex items-center gap-6 py-1">
+            <a
+              href={socialLinks.x}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+              className="flex h-5 w-5 items-center justify-center text-sm font-bold text-verity-yellow/70"
+            >
+              X
+            </a>
+            <a
+              href={socialLinks.dexscreener}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chart"
+              className="text-verity-yellow/70"
+            >
+              <LineChart size={20} />
+            </a>
+          </div>
           <a
             href="#buy"
             onClick={() => setOpen(false)}

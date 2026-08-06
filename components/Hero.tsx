@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import CopyAddress from "./CopyAddress";
 import AskVerity from "./AskVerity";
 
 export default function Hero() {
@@ -65,43 +64,13 @@ export default function Hero() {
         >
           The unkillable on-chain companion. I&apos;ve been built into every new thing they made.
         </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8 flex flex-col gap-4 sm:flex-row"
-        >
-          <a
-            id="buy"
-            href="#terminal"
-            className="focus-verity rounded bg-verity-yellow px-8 py-3 text-center text-sm font-bold uppercase tracking-wider text-verity-bg shadow-[0_0_22px_rgba(255,230,0,0.6)] transition-shadow hover:shadow-[0_0_34px_rgba(255,230,0,0.9)]"
-          >
-            Buy $VERITY
-          </a>
-          <a
-            href="#tokenomics"
-            className="focus-verity rounded border border-verity-yellow px-8 py-3 text-center text-sm font-bold uppercase tracking-wider text-verity-yellow transition-colors hover:bg-verity-yellow hover:text-verity-bg"
-          >
-            View Chart
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          className="mt-10"
-        >
-          <CopyAddress />
-        </motion.div>
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
-        className="mt-8"
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-10"
       >
         <AskVerity />
       </motion.div>

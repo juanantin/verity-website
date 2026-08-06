@@ -18,9 +18,22 @@ export default async function LiveFromX() {
   return (
     <section id="live-x" className="px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-3xl">
-        <h2 className="mb-8 text-center text-2xl font-bold uppercase tracking-widest sm:text-3xl">
+        <h2 className="mb-4 text-center text-2xl font-bold uppercase tracking-widest sm:text-3xl">
           Live from X
         </h2>
+
+        <p className="mb-8 text-center text-base text-verity-yellow/70 sm:text-lg">
+          Tweet at{" "}
+          <a
+            href={socialLinks.x}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-verity-yellow underline transition-colors hover:text-verity-red"
+          >
+            @VERITYtoken_
+          </a>{" "}
+          and VERITY replies.
+        </p>
 
         <div className="overflow-hidden rounded-lg border border-verity-yellow/70 bg-verity-bg-raised shadow-[0_0_40px_rgba(255,230,0,0.12)]">
           <div className="flex items-center gap-2 border-b border-verity-yellow/40 bg-black/40 px-4 py-3">
@@ -51,19 +64,6 @@ export default async function LiveFromX() {
             )}
           </div>
         </div>
-
-        <p className="mt-6 text-center text-xs text-verity-yellow/40">
-          Tweet at{" "}
-          <a
-            href={socialLinks.x}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline transition-colors hover:text-verity-yellow"
-          >
-            @VERITYtoken_
-          </a>{" "}
-          and Verity replies.
-        </p>
       </div>
     </section>
   );

@@ -17,9 +17,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <LiveFromX />
         <AboutTerminal />
         <Tokenomics />
-        <LiveFromX />
       </main>
       <Footer />
     </>
