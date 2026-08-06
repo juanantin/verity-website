@@ -7,9 +7,6 @@ export type VerityActivityItem = {
   createdAt: string;
 };
 
-const CACHE_TTL_MS = 5 * 60 * 1000;
-let cache: { data: VerityActivityItem[]; fetchedAt: number } | null = null;
-
 function getXClient() {
   const { X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_SECRET } = process.env;
   if (!X_API_KEY || !X_API_SECRET || !X_ACCESS_TOKEN || !X_ACCESS_SECRET) {
@@ -23,16 +20,14 @@ function getXClient() {
   });
 }
 
-// Cached per warm serverless instance (not shared globally) — good enough to
-// keep normal traffic from re-hitting the X API on every page load without
-// adding a database just for this.
+// Freshness is handled by the homepage's `revalidate` (ISR) plus an on-demand
+// revalidatePath("/") call from the bot route right after it posts a reply —
+// not by a cache kept here. A plain module-level variable isn't shared
+// across separate serverless function instances anyway, so it wouldn't
+// actually reduce X API calls the way it looks like it would.
 export async function getRecentVerityActivity(limit = 5): Promise<VerityActivityItem[]> {
-  if (cache && Date.now() - cache.fetchedAt < CACHE_TTL_MS) {
-    return cache.data.slice(0, limit);
-  }
-
   const client = getXClient();
-  if (!client) return cache?.data.slice(0, limit) ?? [];
+  if (!client) return [];
 
   try {
     const me = await client.v2.me();
@@ -42,19 +37,18 @@ export async function getRecentVerityActivity(limit = 5): Promise<VerityActivity
       "tweet.fields": ["created_at", "referenced_tweets"],
     });
 
-    const replies: VerityActivityItem[] = timeline.tweets
+    return timeline.tweets
       .filter((t) => t.referenced_tweets?.some((r) => r.type === "replied_to"))
       .map((t) => ({
         id: t.id,
         text: t.text,
         url: `https://x.com/VERITYtoken_/status/${t.id}`,
         createdAt: t.created_at ?? "",
-      }));
-
-    cache = { data: replies, fetchedAt: Date.now() };
-    return replies.slice(0, limit);
+      }))
+      .slice(0, limit);
   } catch (err) {
     console.error("getRecentVerityActivity error:", err);
-    return cache?.data.slice(0, limit) ?? [];
+    return [];
   }
 }
+

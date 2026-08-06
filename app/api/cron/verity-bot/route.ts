@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { TwitterApi } from "twitter-api-v2";
 import Anthropic from "@anthropic-ai/sdk";
 import { VERITY_PERSONA, extractTextFromContent } from "@/lib/verity-persona";
@@ -92,6 +93,10 @@ export async function POST(req: NextRequest) {
         console.error(`Verity X bot: failed to reply to ${tweet.id}:`, err);
         results.push({ id: tweet.id, status: "failed" });
       }
+    }
+
+    if (results.some((r) => r.status === "replied")) {
+      revalidatePath("/");
     }
 
     return NextResponse.json({ checked: mentions.tweets.length, processed: results.length, results });
