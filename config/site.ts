@@ -6,7 +6,7 @@ export const navLinks = [
 
 export const socialLinks = {
   x: "https://x.com/VERITYtoken_",
-  dexscreener: "https://dexscreener.com",
+  dexscreener: "https://dexscreener.com/robinhood/0xfe3f116d58587c2037ce19b500e87e513c9be254e6bd2d473999873dbe933f3a",
 };
 
 export const contractAddress = "0xcf8b45acf80fd983c2d993c87985d971cb5e888e";
