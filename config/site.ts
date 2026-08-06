@@ -9,7 +9,7 @@ export const socialLinks = {
   dexscreener: "https://dexscreener.com",
 };
 
-export const contractAddress = "0x000000000000000000000000000000000000pump";
+export const contractAddress = "0xcf8b45acf80fd983c2d993c87985d971cb5e888e";
 
 export const tokenomics = [
   { label: "Total Supply", value: "1,000,000,000", suffix: "$VERITY" },
