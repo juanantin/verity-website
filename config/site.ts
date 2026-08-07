@@ -6,6 +6,7 @@ export const navLinks = [
 
 export const socialLinks = {
   x: "https://x.com/VERITYtoken_",
+  tiktok: "https://www.tiktok.com/@verity19826",
   dexscreener: "https://dexscreener.com/robinhood/0xfe3f116d58587c2037ce19b500e87e513c9be254e6bd2d473999873dbe933f3a",
 };
 

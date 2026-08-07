@@ -34,6 +34,15 @@ export default function Navbar() {
             X
           </a>
           <a
+            href={socialLinks.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+            className="focus-verity flex h-5 w-5 items-center justify-center text-xs font-bold text-verity-yellow/70 transition-colors hover:text-verity-yellow"
+          >
+            TT
+          </a>
+          <a
             href={socialLinks.dexscreener}
             target="_blank"
             rel="noopener noreferrer"
@@ -81,6 +90,15 @@ export default function Navbar() {
               className="flex h-5 w-5 items-center justify-center text-sm font-bold text-verity-yellow/70"
             >
               X
+            </a>
+            <a
+              href={socialLinks.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              className="flex h-5 w-5 items-center justify-center text-xs font-bold text-verity-yellow/70"
+            >
+              TT
             </a>
             <a
               href={socialLinks.dexscreener}
