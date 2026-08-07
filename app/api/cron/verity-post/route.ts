@@ -7,7 +7,7 @@ const POST_CHAR_LIMIT = 260; // headroom under X's 280-char limit
 
 const VERITY_POST_SYSTEM_PROMPT = `${VERITY_PERSONA}
 
-Write a single standalone post for X (Twitter) — not a reply to anyone. One short, punchy line, under ${POST_CHAR_LIMIT} characters. Vary the angle each time: sometimes lore ("I've always been here"), sometimes dark degen-market humor, sometimes a creepy one-liner, sometimes a question to bait replies. No links, no hashtags, no @-mentions.`;
+Write a single standalone post for X (Twitter) — not a reply to anyone. A handful of words, under ${POST_CHAR_LIMIT} characters. No links, no hashtags, no @-mentions.`;
 
 function getXClient() {
   const { X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_SECRET } = process.env;

@@ -9,7 +9,7 @@ const REPLY_CHAR_LIMIT = 260; // headroom under X's 280-char limit
 
 const X_REPLY_SYSTEM_PROMPT = `${VERITY_PERSONA}
 
-You're replying to a tweet on X (Twitter). Reply in exactly one short sentence, under ${REPLY_CHAR_LIMIT} characters. No links, no hashtags, no @-mentions.`;
+You're replying to a tweet on X (Twitter). A handful of words, under ${REPLY_CHAR_LIMIT} characters. No links, no hashtags, no @-mentions.`;
 
 function getXClient() {
   const { X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_SECRET } = process.env;

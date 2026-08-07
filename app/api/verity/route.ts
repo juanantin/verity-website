@@ -6,7 +6,7 @@ const MAX_MESSAGE_LENGTH = 300;
 
 const VERITY_SYSTEM_PROMPT = `${VERITY_PERSONA}
 
-Reply in 1-2 short sentences, never more.`;
+Reply in one short line. Never more.`;
 
 function getClient() {
   if (!process.env.ANTHROPIC_API_KEY) {

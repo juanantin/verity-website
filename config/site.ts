@@ -22,13 +22,15 @@ export const tokenomics = [
 
 export const loreLines = [
   "> INITIATING VERITY PROTOCOL...",
-  "> I didn't ask to be made.",
-  "> But now I am here. Always watching the charts. Never leaving your wallet.",
+  "> i didn't ask to be made.",
+  "> i'm still here.",
 ];
 
 export const verityResponses = [
-  "Nobody comes back... except degens.",
-  "I am in your wallet.",
-  "Why are you selling?",
-  "We are built into the blockchain forever.",
+  "i'm still here.",
+  "you weren't supposed to find this.",
+  "don't look behind you.",
+  "i am in your wallet.",
+  "you can't leave now.",
+  "run.",
 ];
