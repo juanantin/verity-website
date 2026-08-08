@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { tokenomics, socialLinks } from "@/config/site";
+import { tokenomics, socialLinks, buyUrl } from "@/config/site";
 import CopyAddress from "./CopyAddress";
 
 export default function Tokenomics() {
@@ -16,7 +16,9 @@ export default function Tokenomics() {
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
               id="buy"
-              href="#terminal"
+              href={buyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="focus-verity rounded bg-verity-yellow px-8 py-3 text-center text-sm font-bold uppercase tracking-wider text-verity-bg shadow-[0_0_22px_rgba(255,230,0,0.6)] transition-shadow hover:shadow-[0_0_34px_rgba(255,230,0,0.9)]"
             >
               Buy $VERITY

@@ -12,6 +12,9 @@ export const socialLinks = {
 
 export const contractAddress = "0xcf8b45acf80fd983c2d993c87985d971cb5e888e";
 
+export const buyUrl =
+  "https://app.uniswap.org/swap?chain=robinhood&inputCurrency=NATIVE&outputCurrency=0xCF8B45ACF80Fd983c2d993c87985D971Cb5E888E";
+
 export const tokenomics = [
   { label: "Total Supply", value: "1,000,000,000", suffix: "$VERITY" },
   { label: "Chain", value: "Robinhood Chain", suffix: "" },
